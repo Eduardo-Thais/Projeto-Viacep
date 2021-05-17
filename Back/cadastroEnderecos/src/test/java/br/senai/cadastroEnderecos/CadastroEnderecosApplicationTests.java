@@ -1,10 +1,10 @@
-package com.cepapp.cepapp;
+package br.senai.cadastroEnderecos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CepappApplicationTests {
+class CadastroEnderecosApplicationTests {
 
 	@Test
 	void contextLoads() {
