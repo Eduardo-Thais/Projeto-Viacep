@@ -1,7 +1,21 @@
-package br.senai.cadastroEnderecos.dto;
+package br.senai.cadastroEnderecos.model;
 
-public class DadosEnderecoDTO {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+	
+@Entity
+public class Endereco implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
 	private String cep;
 	private String logradouro;
 	private String complemento;
@@ -13,7 +27,10 @@ public class DadosEnderecoDTO {
 	private String ddd;
 	private String siafi;
 	
-	public DadosEnderecoDTO(String cep, String logradouro, String complemento, String bairro, String localidade,
+	
+	
+
+	public Endereco(String cep, String logradouro, String complemento, String bairro, String localidade,
 			String uf, String ibge, String gia, String ddd, String siafi) {
 		super();
 		this.cep = cep;
@@ -27,10 +44,21 @@ public class DadosEnderecoDTO {
 		this.ddd = ddd;
 		this.siafi = siafi;
 	}
-	    
-	public DadosEnderecoDTO() {
+	
+	public Endereco() {
 	
 	}
+	
+    
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+
 
 	public String getCep() {
 		return cep;
