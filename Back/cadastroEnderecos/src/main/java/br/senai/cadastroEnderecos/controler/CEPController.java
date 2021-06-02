@@ -24,5 +24,11 @@ public class CEPController {
 		
 	}
 	
+	@RequestMapping("/listar")
+	public Iterable<Endereco> listarEndereco() {
+		Iterable<Endereco> endereco = er.findAll();
+		return endereco;
+	}
+	
 	
 }
