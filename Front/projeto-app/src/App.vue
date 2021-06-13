@@ -21,19 +21,21 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+
+      <BuscaCep/>
+
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import BuscaCep from './components/buscaCep';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    BuscaCep,
   },
 
   data: () => ({
