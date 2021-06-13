@@ -23,19 +23,21 @@
     <v-main>
 
       <BuscaCep/>
-
+      <listaCep/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import BuscaCep from './components/buscaCep';
+import BuscaCep from './components/BuscaCep';
+import listaCep from './components/ListaCep';
 
 export default {
   name: 'App',
 
   components: {
     BuscaCep,
+    listaCep
   },
 
   data: () => ({

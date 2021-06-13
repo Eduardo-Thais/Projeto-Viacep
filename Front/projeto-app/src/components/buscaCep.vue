@@ -9,18 +9,18 @@
           height="200"
         />
       </v-col>
-      <v-form v-on:submit.prevent="onSubmit">
-        <v-col >
-
+      
+        <v-col  md="12">
+        <v-form v-on:submit.prevent="onSubmit">
           <v-text-field 
           v-model="procura"
           label="Pesquisa"
           ></v-text-field>
           
           <v-btn color="green" @click="procuraCep" >pesquisar</v-btn>
-        
+        </v-form>  
         </v-col>
-      </v-form>
+      
         
     </v-row>
 
@@ -38,7 +38,7 @@ import enderecoSalvo from "./EnderecoSalvo";
 
 
   export default {
-    name: 'buscaCep',
+    name: 'BuscaCep',
 
     components: {
     enderecoSalvo

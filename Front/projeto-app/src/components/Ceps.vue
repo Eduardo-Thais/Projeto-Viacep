@@ -1,5 +1,6 @@
 <template>
   <div>
+      <v-container>
       <v-row no-gutters>
         <v-col cols="12">
             
@@ -8,28 +9,34 @@
             dark
             >
             <v-card-title class="text-h5">
-                CEP {{ cepRetorno.cep }}
+                CEP {{ ceps.cep }}
             </v-card-title>
             <v-list-item>
             <v-row >
-                
-                <v-col md="3">
-                    <p>Rua</p>
+                <v-col  md="3">
+                    <p>Cep</p>
                     <v-text-field
-                    :label= cepRetorno.logradouro 
+                    :label= ceps.cep 
                     solo
                     ></v-text-field>
+                    
+                    <p>Rua</p>
+                    <v-text-field
+                    :label= ceps.logradouro 
+                    solo
+                    ></v-text-field>
+                </v-col>
                 
-                
+                <v-col md="3">
                     <p>Complemento</p>
                     <v-text-field
-                    :label= cepRetorno.complemento 
+                    :label= ceps.complemento 
                     solo
                     ></v-text-field>
 
                     <p>Bairro</p>
                     <v-text-field
-                    :label= cepRetorno.bairro 
+                    :label= ceps.bairro 
                     solo
                     ></v-text-field>
                 </v-col>
@@ -38,13 +45,13 @@
 
                     <p>Cidade</p>
                     <v-text-field
-                    :label= cepRetorno.localidade 
+                    :label= ceps.localidade 
                     solo
                     ></v-text-field>
 
                     <p>Estado</p>
                     <v-text-field
-                    :label= cepRetorno.uf 
+                    :label= ceps.uf 
                     solo
                     ></v-text-field>
                 </v-col>
@@ -53,13 +60,13 @@
 
                     <p>IBGE</p>
                     <v-text-field
-                    :label= cepRetorno.ibge 
+                    :label= ceps.ibge 
                     solo
                     ></v-text-field>
 
                     <p>GIA</p>
                     <v-text-field
-                    :label= cepRetorno.gia 
+                    :label= ceps.gia 
                     solo
                     ></v-text-field>
                 </v-col>
@@ -68,48 +75,40 @@
 
                     <p>Numero</p>
                     <v-text-field
-                    :label= cepRetorno.ddd 
+                    :label= ceps.ddd 
                     solo
                     ></v-text-field>
 
                     <p>Siafi</p>
                     <v-text-field
-                    :label= cepRetorno.siafi 
+                    :label= ceps.siafi 
                     solo
                     ></v-text-field>
                 </v-col>
                 
             </v-row>
             </v-list-item>
-                <v-card-actions>
-                    <v-btn color="blue" @click="save" >Salvar</v-btn>
-                </v-card-actions>
           </v-card>
             
         </v-col>
       </v-row>
+      </v-container>
   </div>
 </template>
 
 <script>
-const axios = require('axios').default;
+
 
 export default {
-    name: 'EnderecoSalvo',
+    name: 'Ceps',
 
     props: {
-        cepRetorno: { type: Object[Array], required: true }
+        ceps: { type: Object[Array], required: true }
     },
-    methods: {
+
     
-    save: function() {
-        
-          axios
-          .post('http://localhost:8080/cadastrar', this.cepRetorno)
-          
-          
-    }
-  }
+   
+  
     
 
 };
