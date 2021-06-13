@@ -34,7 +34,7 @@
 
 <script>
 const axios = require('axios').default;
-import enderecoSalvo from "./EnderecoSalvo";
+import enderecoSalvo from "../components/EnderecoSalvo";
 
 
   export default {

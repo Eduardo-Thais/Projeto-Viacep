@@ -17,28 +17,30 @@
       </div>
 
       <v-spacer></v-spacer>
+      
+       <v-tabs grow>
+          <v-tab to="/">Pagina de Busca</v-tab>
+          <v-tab to="/listacep">Pagina de Lista</v-tab>
+          
+        </v-tabs>
+      
+      
 
     </v-app-bar>
 
     <v-main>
-
-      <BuscaCep/>
-      <listaCep/>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import BuscaCep from './components/BuscaCep';
-import listaCep from './components/ListaCep';
+
 
 export default {
   name: 'App',
 
-  components: {
-    BuscaCep,
-    listaCep
-  },
+
 
   data: () => ({
     //

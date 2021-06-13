@@ -13,21 +13,14 @@
             </v-card-title>
             <v-list-item>
             <v-row >
-                <v-col  md="3">
-                    <p>Cep</p>
-                    <v-text-field
-                    :label= ceps.cep 
-                    solo
-                    ></v-text-field>
+                <v-col  md="4">
                     
                     <p>Rua</p>
                     <v-text-field
                     :label= ceps.logradouro 
                     solo
                     ></v-text-field>
-                </v-col>
                 
-                <v-col md="3">
                     <p>Complemento</p>
                     <v-text-field
                     :label= ceps.complemento 
@@ -41,7 +34,7 @@
                     ></v-text-field>
                 </v-col>
 
-                <v-col md="3">
+                <v-col md="4">
 
                     <p>Cidade</p>
                     <v-text-field
@@ -54,24 +47,20 @@
                     :label= ceps.uf 
                     solo
                     ></v-text-field>
-                </v-col>
-
-                <v-col md="4">
 
                     <p>IBGE</p>
                     <v-text-field
                     :label= ceps.ibge 
                     solo
                     ></v-text-field>
+                </v-col>
 
+                <v-col md="4">
                     <p>GIA</p>
                     <v-text-field
                     :label= ceps.gia 
                     solo
                     ></v-text-field>
-                </v-col>
-
-                <v-col md="4">
 
                     <p>Numero</p>
                     <v-text-field

@@ -13,13 +13,12 @@
             <v-list-item>
             <v-row >
                 
-                <v-col md="3">
+                <v-col md="4">
                     <p>Rua</p>
                     <v-text-field
                     :label= cepRetorno.logradouro 
                     solo
                     ></v-text-field>
-                
                 
                     <p>Complemento</p>
                     <v-text-field
@@ -32,10 +31,10 @@
                     :label= cepRetorno.bairro 
                     solo
                     ></v-text-field>
+
                 </v-col>
 
-                <v-col md="3">
-
+                <v-col md="4">
                     <p>Cidade</p>
                     <v-text-field
                     :label= cepRetorno.localidade 
@@ -47,24 +46,21 @@
                     :label= cepRetorno.uf 
                     solo
                     ></v-text-field>
-                </v-col>
-
-                <v-col md="4">
 
                     <p>IBGE</p>
                     <v-text-field
                     :label= cepRetorno.ibge 
                     solo
                     ></v-text-field>
+                </v-col>
 
+                <v-col md="4">
                     <p>GIA</p>
                     <v-text-field
                     :label= cepRetorno.gia 
                     solo
                     ></v-text-field>
-                </v-col>
 
-                <v-col md="4">
 
                     <p>Numero</p>
                     <v-text-field
