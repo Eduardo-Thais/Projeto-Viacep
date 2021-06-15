@@ -98,14 +98,14 @@ export default {
     },
     methods: {
     
-    save: function() {
-        
-          axios
-          .post('http://localhost:8080/cadastrar', this.cepRetorno)
-          
-          
+        save: function() {
+            
+            axios
+            .post('http://localhost:8080/cadastrar', this.cepRetorno)
+            
+            
+        }
     }
-  }
     
 
 };

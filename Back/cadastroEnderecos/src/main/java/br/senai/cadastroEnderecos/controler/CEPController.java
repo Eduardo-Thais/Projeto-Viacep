@@ -30,5 +30,23 @@ public class CEPController {
 		return endereco;
 	}
 	
+	@RequestMapping(value = "/deletaEndereco")
+	public boolean deletaEndereco(long codigo) {
+		Endereco endereco = er.findByCodigo(codigo);
+		er.delete(endereco);
+		
+		return true;
+	}
+	
+	@RequestMapping(value = "/editaEndereco")
+	public boolean editaEndereco(@RequestBody Endereco cadastro, long codigo) {
+		cadastro.setId(codigo);
+		
+		er.save(cadastro);
+		
+		
+		return true;
+	}
+	
 	
 }
