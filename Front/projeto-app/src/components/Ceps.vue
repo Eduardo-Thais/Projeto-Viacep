@@ -17,21 +17,21 @@
                     
                     <p>Rua</p>
                     <v-text-field
-                    v-model="logradouro"
+                    v-model="localLogradouro"
                     :label= ceps.logradouro 
                     solo
                     ></v-text-field>
                 
                     <p>Complemento</p>
                     <v-text-field
-                    v-model="complemento"
+                    v-model="localComplemento"
                     :label= ceps.complemento 
                     solo
                     ></v-text-field>
 
                     <p>Bairro</p>
                     <v-text-field
-                    v-model="bairro"
+                    v-model="localBairro"
                     :label= ceps.bairro 
                     solo
                     ></v-text-field>
@@ -41,21 +41,21 @@
 
                     <p>Cidade</p>
                     <v-text-field
-                    v-model="localidade"
+                    v-model="localLocalidade"
                     :label= ceps.localidade 
                     solo
                     ></v-text-field>
 
                     <p>Estado</p>
                     <v-text-field
-                    v-model="uf"
+                    v-model="localUf"
                     :label= ceps.uf 
                     solo
                     ></v-text-field>
 
                     <p>IBGE</p>
                     <v-text-field
-                    v-model="ibge"
+                    v-model="localIbge"
                     :label= ceps.ibge 
                     solo
                     ></v-text-field>
@@ -64,24 +64,24 @@
                 <v-col md="4">
                     <p>GIA</p>
                     <v-text-field
-                    v-model="gia"
+                    v-model="localGia"
                     :label= ceps.gia 
                     solo
                     ></v-text-field>
 
                     <p>Numero</p>
                     <v-text-field
-                    v-model="ddd"
+                    v-model="localDdd"
                     :label= ceps.ddd 
                     solo
                     ></v-text-field>
 
                     <p>Siafi</p>
                     <v-text-field
-                    v-model="siafi"
-                    :label= ceps.siafi 
+                    v-model="localSiafi"
+                    :label= cep.siafi 
                     solo
-                    ></v-text-field>
+                    >{{ cep.siafi }}</v-text-field>
                 </v-col>
                 
             </v-row>
@@ -113,33 +113,75 @@ export default {
     methods: {
 
         deletar: function() {
-            
+            //Faz a chamada para a API do back-end para excluir as informações do banco
           axios
           .post('http://localhost:8080/deletaEndereco?codigo=' + this.ceps.id)
           
         },
         edita: function() {
           
-            //passar novas informações
-            console.log(this.ceps.siafi)
+            //Verifica se ha alterações nos campos de texto
+            if(this.localLogradouro != this.cep.logradouro){
+              this.cep.logradouro = this.localLogradouro
+            } 
+            if(this.localComplemento != this.cep.complemento){
+              this.cep.complemento = this.localComplemento
+            } 
+            if(this.localBairro != this.cep.bairro){
+              this.cep.bairro = this.localBairro
+            } 
+            if(this.localLocalidade != this.cep.localidade){
+              this.cep.localidade = this.localLocalidade
+            } 
+            if(this.localUf != this.cep.uf){
+              this.cep.uf = this.localUf
+            } 
+            if(this.localIbge != this.cep.ibge){
+              this.cep.ibge = this.localIbge
+            } 
+            if(this.localGia != this.cep.gia){
+              this.cep.gia = this.localGia
+            } 
+            if(this.localDdd != this.cep.ddd){
+              this.cep.ddd = this.localDdd
+            } 
+            if(this.localSiafi != this.cep.siafi){
+              this.cep.siafi = this.localSiafi
+            }
+
+            
+            //Faz a chamada para a API do back-end para editar as informações do banco
           axios
-          .post('http://localhost:8080/editaEndereco?codigo=' + this.ceps.id)
+          .post('http://localhost:8080/editaEndereco?codigo=' + this.ceps.id, this.cep)
           
         }
+    },
+    created(){
+      //Passa as informações da prop para variaveis locais.
+      this.cep = this.ceps,
+      this.localLogradouro = this.ceps.logradouro,
+      this.localComplemento = this.ceps.complemento,
+      this.localBairro = this.ceps.bairro,
+      this.localLocalidade = this.ceps.localidade,
+      this.localUf = this.ceps.uf,
+      this.localIbge = this.ceps.ibge,
+      this.localGia = this.ceps.gia,
+      this.localDdd = this.ceps.ddd,
+      this.localSiafi = this.ceps.siafi
     },
 
      data: () => {
       return {
-            
-                logradouro: "",
-                complemento: "",
-                bairro: "",
-                localidade: "",
-                uf: "",
-                ibge: "",
-                gia: "",
-                ddd: "",
-                siafi: ""
+            cep: [],
+                localLogradouro: "",
+                localComplemento: "",
+                localBairro: "",
+                localLocalidade: "",
+                localUf: "",
+                localIbge: "",
+                localGia: "",
+                localDdd: "",
+                localSiafi: "" 
             
       }
     },
