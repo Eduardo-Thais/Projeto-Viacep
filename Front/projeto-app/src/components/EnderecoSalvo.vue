@@ -78,7 +78,12 @@
             </v-row>
             </v-list-item>
                 <v-card-actions>
-                    <v-btn color="blue" @click="save" >Salvar</v-btn>
+                    <v-fab-transition>
+                        <v-btn color="blue" :timeout="timeout" v-on:click=" hidden = !hidden" @click="save" v-show="!hidden">Salvar</v-btn>
+                    </v-fab-transition>
+                    <v-fab-transition>
+                        <v-icon @click=" hidden = !hidden" v-show="hidden">mdi-television</v-icon>
+                    </v-fab-transition>
                 </v-card-actions>
           </v-card>
             
@@ -105,7 +110,13 @@ export default {
             
             
         }
-    }
+    },
+    data() {
+        return {
+            hidden: false,
+            timeout: 1000,
+        }
+    },
     
 
 };

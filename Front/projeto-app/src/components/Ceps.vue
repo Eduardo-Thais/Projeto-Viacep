@@ -18,21 +18,18 @@
                     <p>Rua</p>
                     <v-text-field
                     v-model="localLogradouro"
-                    :label= ceps.logradouro 
                     solo
                     ></v-text-field>
                 
                     <p>Complemento</p>
                     <v-text-field
                     v-model="localComplemento"
-                    :label= ceps.complemento 
                     solo
                     ></v-text-field>
 
                     <p>Bairro</p>
                     <v-text-field
                     v-model="localBairro"
-                    :label= ceps.bairro 
                     solo
                     ></v-text-field>
                 </v-col>
@@ -42,21 +39,18 @@
                     <p>Cidade</p>
                     <v-text-field
                     v-model="localLocalidade"
-                    :label= ceps.localidade 
                     solo
                     ></v-text-field>
 
                     <p>Estado</p>
                     <v-text-field
                     v-model="localUf"
-                    :label= ceps.uf 
                     solo
                     ></v-text-field>
 
                     <p>IBGE</p>
                     <v-text-field
                     v-model="localIbge"
-                    :label= ceps.ibge 
                     solo
                     ></v-text-field>
                 </v-col>
@@ -65,21 +59,18 @@
                     <p>GIA</p>
                     <v-text-field
                     v-model="localGia"
-                    :label= ceps.gia 
                     solo
                     ></v-text-field>
 
                     <p>Numero</p>
                     <v-text-field
                     v-model="localDdd"
-                    :label= ceps.ddd 
                     solo
                     ></v-text-field>
 
                     <p>Siafi</p>
                     <v-text-field
                     v-model="localSiafi"
-                    :label= cep.siafi 
                     solo
                     >{{ cep.siafi }}</v-text-field>
                 </v-col>
@@ -149,7 +140,7 @@ export default {
               this.cep.siafi = this.localSiafi
             }
 
-            
+
             //Faz a chamada para a API do back-end para editar as informações do banco
           axios
           .post('http://localhost:8080/editaEndereco?codigo=' + this.ceps.id, this.cep)

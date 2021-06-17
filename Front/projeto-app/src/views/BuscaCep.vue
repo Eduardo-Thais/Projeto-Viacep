@@ -17,7 +17,7 @@
           label="Pesquisa"
           ></v-text-field>
           
-          <v-btn color="green" @click="procuraCep" >pesquisar</v-btn>
+          <v-btn color="green" dark  v-on:click=" show = true " @click="procuraCep" >pesquisar</v-btn>
         </v-form>  
         </v-col>
       
@@ -26,7 +26,9 @@
 
     <v-row>
       <v-col>
-        <enderecoSalvo :cepRetorno="cep" />
+                  
+            <enderecoSalvo v-show="show" :cepRetorno="cep" />
+            <span v-show="!show"> salvo </span>
       </v-col>
     </v-row>
   </v-container>
@@ -48,12 +50,13 @@ import enderecoSalvo from "../components/EnderecoSalvo";
       return {
         cep: [],
         procura: '',
+        show: false
         
       }
     },
     
   methods: {
-    
+
     procuraCep: function() {
           axios
           .get('https://viacep.com.br/ws/' + this.procura + '/json/')
